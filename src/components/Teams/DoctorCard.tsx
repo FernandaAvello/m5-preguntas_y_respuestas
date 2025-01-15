@@ -1,9 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Card, Tag, Row, Col } from 'antd';
 const { Meta } = Card;
 
-const DoctorCard = ({ name, specialty, description, image }) => (
+// Recibe props que representan los datos del doctor
+interface DoctorCardProps {
+  name: string;
+  specialty: string;
+  description: string;
+  image: string;
+}
+
+const DoctorCard: React.FC<DoctorCardProps> = ({ name, specialty, description, image }) => (
   <Card
     hoverable
     style={{
@@ -24,11 +31,4 @@ const DoctorCard = ({ name, specialty, description, image }) => (
   </Card>
 );
 
-DoctorCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  specialty: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-};
-
-export { DoctorCard };
+export default DoctorCard;
